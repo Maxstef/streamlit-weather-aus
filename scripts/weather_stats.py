@@ -1,10 +1,8 @@
 import pandas as pd
 import streamlit as st
+import numpy as np
 
 def get_weather_stats(show_all=True, features=['Humidity3pm', 'Pressure3pm', 'MinTemp', 'MaxTemp']):
-    import pandas as pd
-    import numpy as np
-
     raw_df = pd.read_csv('data/weatherAUS.csv')
     raw_df.dropna(subset=['RainTomorrow'], inplace=True)
 
