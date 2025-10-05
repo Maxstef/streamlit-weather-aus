@@ -88,7 +88,7 @@ class RainPredictor:
             for feature in self.input_features:
                 if (type(self.input_features[feature]) == float):
                     conditions_markdown += feature + ': ' + str(round(self.input_features[feature], 2)) + '<br/>'
-                else:
+                elif (self.input_features[feature] is not None):
                     conditions_markdown += feature + ': ' + str(self.input_features[feature]) + '<br/>'
                 
             st.markdown(conditions_markdown, unsafe_allow_html=True)
