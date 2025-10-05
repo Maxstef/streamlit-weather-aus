@@ -1,5 +1,6 @@
 import streamlit as st
 from scripts.weather_stats import get_weather_stats, get_st_column_config
+from scripts.predict_rain import RainPredictor
 
 # -------------------------------
 # Page configuration
@@ -34,9 +35,8 @@ st.markdown(
 )
 
 # Display dataframe
-stats_df = get_weather_stats()
 st.dataframe(
-    stats_df,
+    get_weather_stats(),
     hide_index=True,
     column_config=get_st_column_config()
 )
@@ -44,4 +44,20 @@ st.dataframe(
 # -------------------------------
 # Prediction
 # -------------------------------
-# TODO
+# Section title
+st.header("Predict Rain Tomorrow")
+
+# Description
+st.markdown(
+    """
+Enter the weather conditions below and click the **Predict Rain** button.  
+
+- Some values are optional — you can skip them.  
+- You can provide all available details or only the ones you know.  
+- The prediction works with any number of provided inputs, but **more details improve prediction accuracy**.
+"""
+)
+
+# Render the prediction form
+rain_predictor = RainPredictor()
+rain_predictor.render_predict_form()
