@@ -18,7 +18,7 @@ st.markdown(
     Below you can find useful statistics by location, which may help explain the patterns behind rainy days.
     """
 )
-st.image("images/weather-aus.png", use_column_width=True)
+st.image("images/weather-aus.png", use_container_width=True)
 
 # -------------------------------
 # Statistical overview
